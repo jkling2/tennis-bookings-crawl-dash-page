@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="UTF-8">
+        <title>Dash</title>
+        <link rel="icon" type="image/x-icon" href="/_favicon.ico?v=2.0.0">
+        
+    </head>
+    <body>
+        
+<div id="react-entry-point">
+    <div class="_dash-loading">
+        Loading...
+    </div>
+</div>
+
+        <footer>
+            <script id="_dash-config" type="application/json">{"url_base_pathname":null,"requests_pathname_prefix":"/","ui":true,"props_check":true,"show_undo_redo":false,"suppress_callback_exceptions":false,"update_title":"Updating...","hot_reload":{"interval":3000,"max_retry":8}}</script>
+            <script src="/_dash-component-suites/dash/deps/polyfill@7.v2_0_0m1643145468.12.1.min.js"></script>
+<script src="/_dash-component-suites/dash/deps/react@16.v2_0_0m1643145468.14.0.js"></script>
+<script src="/_dash-component-suites/dash/deps/react-dom@16.v2_0_0m1643145468.14.0.js"></script>
+<script src="/_dash-component-suites/dash/deps/prop-types@15.v2_0_0m1643145468.7.2.js"></script>
+<script src="/_dash-component-suites/dash/dash-renderer/build/dash_renderer.v2_0_0m1643145468.dev.js"></script>
+<script src="/_dash-component-suites/dash/dcc/dash_core_components.v2_0_0m1643145468.js"></script>
+<script src="/_dash-component-suites/dash/dcc/dash_core_components-shared.v2_0_0m1643145468.js"></script>
+<script src="/_dash-component-suites/dash/html/dash_html_components.v2_0_0m1643145468.min.js"></script>
+<script src="/_dash-component-suites/dash/dash_table/bundle.v5_0_0m1643145468.js"></script>
+<script>
+var clientside = window.dash_clientside = window.dash_clientside || {};
+var ns = clientside["_dashprivate_avg-reservations-day-day-time"] = clientside["_dashprivate_avg-reservations-day-day-time"] || {};
+ns["figure"] = 
+    function(reference_day_time, reference_day, store_data, days_d_to_en_dic) {
+        var start_times = [];
+        var dt = new Date();
+        dt.setHours(reference_day_time.split(':')[0]);
+        dt.setMinutes(reference_day_time.split(':')[1] - 30);
+        for (let s = 0; s <= 6; s++) {
+            start_times.push(dt.getHours() + ":" + (dt.getMinutes() < 10 ? '0' + dt.getMinutes() : dt.getMinutes()));
+            dt.setMinutes(dt.getMinutes() + 15);
+        }
+        let day_data = store_data[days_d_to_en_dic[reference_day]];
+        let data_for_day_time = {};
+        data_for_day_time['layout'] = day_data['layout'];
+        let data = [];
+        for (let m = 0; m < day_data['data'].length; m++) {
+            let mode = day_data['data'][m];
+            let mode_for_day_time = {};
+            mode_for_day_time['marker'] = mode['marker']
+            mode_for_day_time['name'] = mode['name']
+            mode_for_day_time['type'] = mode['type']
+            let data_y = [].fill(0.0);
+            for (let i = 0; i < mode['x'].length; i++) {
+                let idx = start_times.indexOf(mode['x'][i]);
+                if (idx >= 0) {
+                    data_y[idx] = mode['y'][i];
+                }
+            }
+            mode_for_day_time['x'] = [];
+            for (let s = 0; s < start_times.length; s++) {
+                if (s == 2) {
+                    mode_for_day_time['x'].push("<b>" + start_times[s] + "</b>");
+                } else {
+                    mode_for_day_time['x'].push(start_times[s]);
+                }
+            }
+            mode_for_day_time['y'] = data_y;
+            data.push(mode_for_day_time);
+        }
+        data_for_day_time['data'] = data;
+        return [data_for_day_time, `Durchschnittliche Reservierungen für ${reference_day} gegen ${reference_day_time} Uhr`];
+    }
+    ;
+</script>
+            <script id="_dash-renderer" type="application/javascript">var renderer = new DashRenderer();</script>
+        </footer>
+    </body>
+</html>
