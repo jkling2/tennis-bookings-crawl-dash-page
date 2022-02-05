@@ -1,0 +1,30 @@
+[
+  {
+    "clientside_function": {
+      "function_name": "figure", 
+      "namespace": "_dashprivate_avg-reservations-day-day-time"
+    }, 
+    "inputs": [
+      {
+        "id": "time-picker", 
+        "property": "value"
+      }, 
+      {
+        "id": "day-picker", 
+        "property": "value"
+      }
+    ], 
+    "output": "..avg-reservations-day-day-time.figure...h2.children..", 
+    "prevent_initial_call": false, 
+    "state": [
+      {
+        "id": "store", 
+        "property": "data"
+      }, 
+      {
+        "id": "days_d_to_en_dic", 
+        "property": "data"
+      }
+    ]
+  }
+]
