@@ -17,16 +17,16 @@
 
         <footer>
             <script id="_dash-config" type="application/json">{"url_base_pathname":null,"requests_pathname_prefix":"/tennis-bookings-crawl-dash-page/","ui":false,"props_check":false,"show_undo_redo":false}</script>
-            <script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/deps/polyfill@7.v2_1_0m1644228034.12.1.min.js"></script>
-<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/deps/react@16.v2_1_0m1644228034.14.0.js"></script>
-<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/deps/react-dom@16.v2_1_0m1644228034.14.0.js"></script>
-<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/deps/prop-types@15.v2_1_0m1644228034.7.2.js"></script>
-<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash_bootstrap_components/_components/dash_bootstrap_components.v1_0_3m1644228034.min.js"></script>
-<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/dash-renderer/build/dash_renderer.v2_1_0m1644228034.dev.js"></script>
-<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/dcc/dash_core_components.v2_1_0m1644228034.js"></script>
-<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/dcc/dash_core_components-shared.v2_1_0m1644228034.js"></script>
-<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/html/dash_html_components.v2_0_1m1644228034.min.js"></script>
-<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/dash_table/bundle.v5_1_0m1644228034.js"></script>
+            <script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/deps/polyfill@7.v2_1_0m1647787725.12.1.min.js"></script>
+<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/deps/react@16.v2_1_0m1647787725.14.0.js"></script>
+<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/deps/react-dom@16.v2_1_0m1647787725.14.0.js"></script>
+<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/deps/prop-types@15.v2_1_0m1647787725.7.2.js"></script>
+<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash_bootstrap_components/_components/dash_bootstrap_components.v1_0_3m1647787725.min.js"></script>
+<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/dash-renderer/build/dash_renderer.v2_1_0m1647787725.dev.js"></script>
+<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/dcc/dash_core_components.v2_1_0m1647787725.js"></script>
+<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/dcc/dash_core_components-shared.v2_1_0m1647787725.js"></script>
+<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/html/dash_html_components.v2_0_1m1647787725.min.js"></script>
+<script src="/tennis-bookings-crawl-dash-page/_dash-component-suites/dash/dash_table/bundle.v5_1_0m1647787725.js"></script>
 <script>
 var clientside = window.dash_clientside = window.dash_clientside || {};
 var ns = clientside["_dashprivate_avg-reservations-day-day-time"] = clientside["_dashprivate_avg-reservations-day-day-time"] || {};
@@ -37,7 +37,7 @@ ns["figure"] =
         dt.setHours(reference_day_time.split(':')[0]);
         dt.setMinutes(reference_day_time.split(':')[1] - 30);
         for (let s = 0; s <= 6; s++) {
-            start_times.push(dt.getHours() + ":" + (dt.getMinutes() < 10 ? '0' + dt.getMinutes() : dt.getMinutes()));
+            start_times.push((dt.getHours() < 10 ? '0' + dt.getHours() : dt.getHours()) + ":" + (dt.getMinutes() < 10 ? '0' + dt.getMinutes() : dt.getMinutes()));
             dt.setMinutes(dt.getMinutes() + 15);
         }
         let day_data = store_data[days_d_to_en_dic[reference_day]];
